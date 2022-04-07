@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom"
-import { WatchLaterProvider } from "./contexts/watchlater-context"
-import { LikedVideosProvider } from "./contexts/liked-videos-context"
+import { LikedVideosProvider,WatchLaterProvider } from "./contexts/index"
+
 
 makeServer()
 ReactDOM.render(

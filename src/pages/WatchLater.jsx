@@ -1,4 +1,4 @@
-import {useWatchLaterContext} from "../contexts/watchlater-context"
+import {useWatchLaterContext} from "../contexts/index"
 import { IcOutlineThumbUp, IcOutlineThumbDown, IcOutlineWatchLater, IcRoundWatchLater } from '../assets/index'
 
 

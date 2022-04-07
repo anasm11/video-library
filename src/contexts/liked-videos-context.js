@@ -26,7 +26,6 @@ const unlikeVideo = async (video) => {
 }
 
 const likedVideosReducer = (state, { type, payload }) => {  
-    console.log(state,'state like red')
     switch (type) {
         case ('LIKE'): {
             likeVideo(payload)
@@ -53,7 +52,6 @@ const LikedVideosProvider = ({ children }) => {
             }
         })
 
-        console.log(res.data.likes,'init setuseeff')
         likedVideosDispatch({ type: 'INIT', payload: res.data.likes })})()
     }, [])
 

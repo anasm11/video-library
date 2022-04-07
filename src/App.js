@@ -6,7 +6,6 @@ import Navigation from './components/Navigation'
 
 const App=()=>{
     const res=useLocation()
-    console.log(res,'l')
     return (<div className='App'>
         {res.pathname!=='/login' && <Navigation/>}
 

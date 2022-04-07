@@ -22,7 +22,7 @@ const Login = () => {
                 </span>
                 <button className='btn primary-btn' onClick={async()=>{
                     const res=await axios.post('/api/auth/login',{email,password})
-                    console.log(res)
+                    
                     localStorage.setItem('token',res.data.encodedToken)
                 }}>Login</button>
             </div>

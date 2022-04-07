@@ -1,8 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { IcOutlineThumbUp,IcRoundThumbUp, IcOutlineWatchLater, IcRoundWatchLater } from '../assets/index'
-import { useWatchLaterContext } from "../contexts/watchlater-context"
-import { useLikedVideosContext } from "../contexts/liked-videos-context.js"
+import { useWatchLaterContext,useLikedVideosContext } from "../contexts/index"
 
 
 const LandingPage = () => {
@@ -17,7 +16,6 @@ const LandingPage = () => {
         method: 'get',
         url: '/api/videos',
       })
-      console.log(res.data)
       setVideos(res.data.videos)
     })()
     
