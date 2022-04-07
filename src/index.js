@@ -8,7 +8,7 @@ import {
   , LikedVideosProvider
   , HistoryProvider
   , PlaylistProvider
-} from "../src/contexts/index"
+} from "./contexts/index"
 
 makeServer()
 ReactDOM.render(
