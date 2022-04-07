@@ -1,0 +1,18 @@
+@import url("https://lucidui.netlify.app/library.css");
+
+
+
+.nav{
+    position:sticky;
+    top:0;left:0;right:0;
+}
+
+.landing-page{
+    display:flex;
+    gap:1rem;
+    margin:1rem;
+}
+
+.card{
+    max-width:300px;
+}
