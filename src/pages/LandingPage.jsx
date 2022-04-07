@@ -1,15 +1,21 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { IcOutlineThumbUp,IcRoundThumbUp, IcOutlineWatchLater, IcRoundWatchLater } from '../assets/index'
-import { useWatchLaterContext } from "../contexts/watchlater-context"
-import { useLikedVideosContext } from "../contexts/liked-videos-context.js"
+import { IcOutlineThumbUp,IcRoundThumbUp, IcOutlineWatchLater, IcRoundWatchLater,IcRoundPlaylistAdd } from '../assets/index'
+import {
+  useWatchLaterContext
+  , useLikedVideosContext
+  , useHistoryContext
+} from "../contexts/index"
+import PlaylistModal from "../components/PlaylistModal"
 
 
 const LandingPage = () => {
   const [videos, setVideos] = useState([])
+  const [showPlaylistModal,setShowPlaylistModal]=useState(false)
 
   const { watchLaterVideos, watchLaterDispatch } = useWatchLaterContext()
-  const {likedVideos,likedVideosDispatch}= useLikedVideosContext()
+    const { historyVideos, historyDispatch} = useHistoryContext()
+    const {likedVideos,likedVideosDispatch}= useLikedVideosContext()
 
   useEffect( () => {
     (async()=>{
@@ -17,7 +23,6 @@ const LandingPage = () => {
         method: 'get',
         url: '/api/videos',
       })
-      console.log(res.data)
       setVideos(res.data.videos)
     })()
     
@@ -25,9 +30,12 @@ const LandingPage = () => {
 
   return (
     <div className='landing-page page-container'>
-      {videos.map((video) =>
+      {showPlaylistModal && <PlaylistModal playlistModalState={{showPlaylistModal,setShowPlaylistModal}}/>}
+      {videos.map((video) =>{
+        return(
+
         <div className="card" key={video._id}>
-          <div className="card-body"  >
+          <div className="card-body"  onClick={()=>{historyDispatch({type:'ADD',payload:video})}}>
 
             <div className="text-container">
               <div className="title-text">{video.title}</div>
@@ -44,10 +52,10 @@ const LandingPage = () => {
               {
                 watchLaterVideos.find((vid) => video._id === vid._id) ? <IcRoundWatchLater onClick={() => watchLaterDispatch({ type: 'REMOVE_FROM_WATCHLATER', payload: video })} /> : <IcOutlineWatchLater onClick={() => watchLaterDispatch({ type: 'ADD_TO_WATCHLATER', payload: video })} />
               }
-
+<IcRoundPlaylistAdd onClick={()=>setShowPlaylistModal(video)}/>
             </div>
           </div>
-        </div>
+        </div>)}
 
       )}
     </div>
