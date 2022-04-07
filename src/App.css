@@ -5,6 +5,7 @@
 .nav{
     position:sticky;
     top:0;left:0;right:0;
+    z-index: 999;
 }
 
 .landing-page{
@@ -15,4 +16,14 @@
 
 .card{
     max-width:300px;
+}
+
+.modal{
+    z-index:999;
+    position: absolute;
+    top:40%;
+    left:40%;
+    box-shadow: 0 0 0 100vmax rgba(0,0,0, 0.3);
+    width:fit-content;
+    border-radius: 1rem;
 }
