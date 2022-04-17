@@ -36,6 +36,9 @@ const historyReducer =  (state, { type, payload }) => {
             const newHistory=state.filter((vid)=>vid._id!==payload._id)
                 return newHistory
         }
+        case('DELETE_HISTORY'):{
+            return []
+        }
     }
 }
 

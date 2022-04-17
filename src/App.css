@@ -1,21 +1,13 @@
 @import url("https://lucidui.netlify.app/library.css");
 
-
-
 .nav{
     position:sticky;
     top:0;left:0;right:0;
     z-index: 999;
 }
 
-.landing-page{
-    display:flex;
-    gap:1rem;
-    margin:1rem;
-}
-
 .card{
-    max-width:300px;
+    width:300px;
 }
 
 .modal{
@@ -26,4 +18,14 @@
     box-shadow: 0 0 0 100vmax rgba(0,0,0, 0.3);
     width:fit-content;
     border-radius: 1rem;
+}
+
+.profile-dropdown{
+    position: absolute;
+    background-color: cornsilk;
+    z-index: 9;
+    padding:0.5rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
 }
