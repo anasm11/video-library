@@ -3,8 +3,8 @@ import {
   , useLikedVideosContext
   , useHistoryContext
 } from "../contexts/index"
-import { IcOutlineThumbUp, IcRoundThumbUp, IcOutlineWatchLater, IcRoundWatchLater,IcRoundDeleteForever } from '../assets/index'
 
+import { IcOutlineThumbUp, IcRoundThumbUp, IcOutlineWatchLater, IcRoundWatchLater,IcRoundDeleteForever } from '../assets/index'
 
 const History = () => {
   const { watchLaterVideos, watchLaterDispatch } = useWatchLaterContext()
@@ -32,7 +32,6 @@ const History = () => {
             <div className="close-btn" onClick={() => historyDispatch({ type: 'REMOVE', payload: video })}>
                 <IcRoundDeleteForever />
               </div>
-              
             <div className="text-container">
               <div className="title-text">{video.title}</div>
               <div className="author-text">{video.creator}</div>
