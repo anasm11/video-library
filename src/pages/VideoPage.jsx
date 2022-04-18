@@ -8,6 +8,7 @@ import {
 } from "../contexts/index"
 import { IcOutlineThumbUp, IcRoundThumbUp, IcOutlineWatchLater, IcRoundWatchLater, IcRoundPlaylistAdd } from '../assets/index'
 import '../css/VideoPage.css'
+import {VideoPageCard} from "../components/index"
 
 const VideoPage = () => {
     const { watchLaterVideos, watchLaterDispatch } = useWatchLaterContext()
@@ -75,22 +76,12 @@ const VideoPage = () => {
                 </div>
                 <h3>{mainVideo && mainVideo.creator}</h3>
                 {mainVideo && mainVideo.description}
-                
+
             </div>
 
             <div className='secondary'>
-                {videos.map((video)=>
-                <div class="card horizontal">
-                <div class="card-body">
-                  <div class="img-text">
-                    <img src={video.img} />
-                    <div class="text-container">
-                      <div class="title-text">{video.title}</div>
-                      <div class="author-text">{video.creator}</div>
-                    </div>
-                  </div>
-                </div> 
-              </div>
+                {videos.map((video) =>
+                    <VideoPageCard video={video} />
                 )}
             </div>
 
