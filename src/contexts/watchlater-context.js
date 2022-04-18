@@ -14,6 +14,7 @@ const watchLaterReducer =  (state, { type, payload }) => {
                 return [...state, payload]
             }
             catch {
+                console.log('error in adding to wishlist')
             }
         }
         case ('REMOVE_FROM_WATCHLATER'): {

@@ -3,8 +3,12 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom"
-import { LikedVideosProvider,WatchLaterProvider } from "./contexts/index"
-
+import {
+  WatchLaterProvider
+  , LikedVideosProvider
+  , HistoryProvider
+  , PlaylistProvider
+} from "./contexts/index"
 
 makeServer()
 ReactDOM.render(
@@ -12,7 +16,11 @@ ReactDOM.render(
     <BrowserRouter>
       <WatchLaterProvider>
         <LikedVideosProvider>
-          <App/>
+          <HistoryProvider>
+            <PlaylistProvider>
+              <App />
+            </PlaylistProvider>
+          </HistoryProvider>
         </LikedVideosProvider>
       </WatchLaterProvider>
     </BrowserRouter>

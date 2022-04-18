@@ -10,6 +10,8 @@ return (
       <Link to='/'>Videos</Link>
       <Link to='/watchlater'>Watch Later</Link>
       <Link to='/likes'>Liked Videos</Link>
+      <Link to='/history'>History</Link>
+      <Link to='/playlists'>Playlists</Link>
       <Link to='/login' >
                   <IcRoundAccountCircle/>
                   </Link>

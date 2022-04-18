@@ -1,14 +1,14 @@
-import { useLikedVideosContext } from "../contexts/index"
-import { IcOutlineThumbUp,IcRoundThumbUp } from '../assets/index'
+import {useLikedVideosContext} from "../contexts/index"
+import { IcOutlineThumbUp, IcRoundThumbUp } from '../assets/index'
 
 
 const Likes = () => {
-    const { likedVideos,likedVideosDispatch } = useLikedVideosContext()
-    
+    const { likedVideos, likedVideosDispatch } = useLikedVideosContext()
+
 
     return (<div>
         {
-            likedVideos.map((video) => 
+            likedVideos.map((video) =>
                 <div className="card" key={video._id}>
                     <div className="card-body" >
 
