@@ -1,0 +1,16 @@
+.landing-page{
+    display:flex;
+    gap:1rem;
+    margin:1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.title-text{
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+}

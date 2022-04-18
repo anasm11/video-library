@@ -3,8 +3,8 @@ import {
   , useLikedVideosContext
   , useHistoryContext
 } from "../contexts/index"
-import { IcOutlineThumbUp, IcRoundThumbUp, IcOutlineWatchLater, IcRoundWatchLater } from '../assets/index'
 
+import { IcOutlineThumbUp, IcRoundThumbUp, IcOutlineWatchLater, IcRoundWatchLater,IcRoundDeleteForever } from '../assets/index'
 
 const History = () => {
   const { watchLaterVideos, watchLaterDispatch } = useWatchLaterContext()
@@ -13,13 +13,25 @@ const History = () => {
 
   return (
     <div>
+      <button onClick={()=>{
+        (async()=>{
+          const res=await({
+            method:'delete',
+            url:'/api/user/history/all',
+            headers:{
+              authorization:localStorage.getItem('token')
+            }
+          })
+          historyDispatch({type:'DELETE_HISTORY'})
+        })()
+      }}>Clear All History</button>
       {historyVideos.map((video) => {
 
         return <div className="card card-with-badge" key={video._id}>
           <div className="card-body">
-            <div className="figure-with-badge">
-              <div className="badge" onClick={() => historyDispatch({ type: 'REMOVE', payload: video })}>close</div>
-            </div>
+            <div className="close-btn" onClick={() => historyDispatch({ type: 'REMOVE', payload: video })}>
+                <IcRoundDeleteForever />
+              </div>
             <div className="text-container">
               <div className="title-text">{video.title}</div>
               <div className="author-text">{video.creator}</div>

@@ -1,0 +1,27 @@
+.video-page{
+    display:flex;
+    padding:2rem;
+    gap:1.5rem;
+}
+
+.primary{
+    flex:0 1 950px;
+}
+
+.secondary{
+    display:flex;
+    flex-direction: column;
+    gap:0.5rem;
+}
+
+.video-page .card{
+width:400px;
+}
+
+.action-buttons{
+    gap:1rem;
+}
+
+.title-text{
+    font-size: smaller;
+}
